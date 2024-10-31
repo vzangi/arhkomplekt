@@ -1,0 +1,11 @@
+.blog__item h3 {
+  text-align: left;
+}
+
+.blog__item .box {
+  max-width: 900px;
+}
+
+.blog__item video {
+  max-width: 100%;
+}

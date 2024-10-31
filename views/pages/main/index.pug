@@ -1,0 +1,18 @@
+extends /layouts/base
+
+block head 
+  link(href="/css/main.css" rel="stylesheet")
+
+block scripts
+  script(src="/js/main.js")
+  script(src="/js/blog.js")
+
+block content
+
+  include prevu
+
+  include categories 
+
+  include about
+
+  include ../blog/blog

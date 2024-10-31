@@ -1,0 +1,19 @@
+.top-jumbotron {
+  max-height: 300px;
+  min-height: 200px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 40px 40px 40px;
+  aspect-ratio: 9/4;
+  background-color: rgba(211,161,108,1)
+}
+
+.top-jumbotron h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  max-width: 700px;
+  color: var(--color-white);
+}

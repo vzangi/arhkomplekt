@@ -1,0 +1,17 @@
+doctype
+html
+  head
+    include /parts/head
+    block head 
+  body
+    block header 
+      include /parts/header
+
+    block content
+      h1= message
+
+    block footer
+      include /parts/footer
+
+    block scripts
+    script(src="/js/menu.js")

@@ -1,0 +1,14 @@
+section(class="categories pt-5 pb-5")
+  div(class="box")
+    div(class='categories__items__list active')
+      
+      each item in category.items 
+        a(class="categories__item" href=item.url target="_blank")
+          div(class="categories__item__desc")
+            div(class="categories__item__name") 
+              img(src=item.logo alt=item.name)
+            div(class="categories__item__hr")
+            div(class="categories__item__btn-box")
+              button(class="btn btn-primary") Смотреть
+          div(class="categories__item__image-box")
+            div(class="categories__item__image" style=`background-image:url(${item.img})`)

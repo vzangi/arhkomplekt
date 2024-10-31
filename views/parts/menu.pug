@@ -1,0 +1,40 @@
+div(class="menu dark-bg color-white") 
+  
+  div(class="menu__contacts")
+    div(class="menu__phone")
+      div(class="menu__phone-phone")= contacts.phone
+      div(class="menu__phone-icons")
+        a(class="menu__phone__telegram-icon menu-icon" href="#")
+          img(src="/img/telegram_1.png")
+        a(class="menu__phone__whatsapp-icon menu-icon" href=`https://wa.me/${contacts.tel}`)
+          img(src="/img/whatsapp_1.png")
+    
+    div(class="menu__social")
+      div Соц. сети
+      div(class="menu__social-icons")
+        a(class="menu__socail__telegram-icon menu-icon" href="#")
+          img(src="/img/telegram_1.png")
+        a(class="menu__social__vk-icon menu-icon" href="#")
+          img(src="/img/vk_1.png")
+
+
+  div(class="menu__nav")
+    nav 
+      ul 
+        each category in categories 
+          li
+            a(href=category.url)= category.name
+
+      ul(class="menu__secondary")
+        li 
+          a(href="#") О нас
+        li
+          a(href="#") Доставка и оплата
+        li
+          a(href="#") Портфолио
+        li
+          a(href="#") Отзывы
+        li
+          a(href="/blog") Блог
+        li
+          a(href="/contacts") Контакты

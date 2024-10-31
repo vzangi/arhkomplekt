@@ -1,0 +1,28 @@
+header 
+  div(class="header blur-back ") 
+    div(class="header__line")
+
+      div(class="heder__logo")
+        a(href="/") архкомплект
+
+      div(class="header__nav")
+        nav 
+          ul 
+            each category in categories 
+              li
+                a(href=category.url)= category.name
+
+      div(class="header__icons")
+        div(class="header__phone")
+          a(href="#")= contacts.phone
+        div(class="header__icon")
+          a(href="#")
+            img(src="/img/telegram_1.png")
+        div(class="header__icon")
+          a(href=`https://wa.me/${contacts.tel}`)
+            img(src="/img/whatsapp_1.png")
+        div(class="header__icon")
+          a(href="#" id="menu-toggler")
+            img(src="/img/menu_2.svg")
+      
+include /parts/menu

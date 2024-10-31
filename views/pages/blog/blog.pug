@@ -1,0 +1,33 @@
+section(class="blog")
+  div(class="dark-bg color-white")
+    div(class="box")
+      div(class="blog__box")
+        h3 БЛОГ
+
+        div(class="categories__list")
+          ul(id="blog_categories")
+            li(class="active" data-id=blog.map(b => b.id).join(','))
+              span Все
+
+            each item in blog 
+              li(data-id=item.id)
+                span!= item.name.replaceAll(' ', '&nbsp;')
+
+      div(class="blog__items__box")
+        ul
+          each blogCategory in blog
+            each item in blogCategory.items
+              li(data-id=blogCategory.id) 
+                a(class="blog__item" href= `/blog/${item.link}`)
+                  div(class="blog__item-imgwrapper")
+                    div(class="blog__item-label") 
+                      span= blogCategory.name
+                    div(class="blog__item-img" style=`background-image:url(${item.prevu_image})`) 
+                  div(class="blog__item-infowrapper")
+                    div(class="blog__item-text")
+                      div(class="blog__item-title")= item.title
+                      if item.prevu
+                        div(class="blog__item-desc")= item.prevu 
+                    div(class="blog__item-date")
+                      span= item.date
+              

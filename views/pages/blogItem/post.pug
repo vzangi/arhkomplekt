@@ -1,0 +1,17 @@
+section(class="blog__item")
+  div(class="dark-bg color-white")
+    div(class="box")
+      div(class="blog__box")
+        h3= blogItem.title
+
+        p(class="d-flex gap-4")
+          small(class="text-secondary")= blogItem.date
+          small(class="text-secondary text-uppercase")= category.name
+
+        //- div(class="video-box")
+          div(class="video-container")
+
+        video(id="myVideo" controls)
+          source(src=blogItem.video type="video/mp4") 
+
+        p= blogItem.description
