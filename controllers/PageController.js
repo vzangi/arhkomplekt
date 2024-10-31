@@ -45,6 +45,10 @@ class PageController {
     res.render('pages/contacts');
   }
 
+  async aboutPage(req, res) {
+    res.render('pages/about');
+  }
+
   async categoryItem(req, res, next) {
     const categoryLink = req.params.category;
     const category = res.locals.categories.find(

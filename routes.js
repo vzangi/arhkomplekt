@@ -17,6 +17,9 @@ router.get('/blog/:link', pageController.blogItem);
 // Контакты
 router.get('/contacts', pageController.contactsPage);
 
+// О нас
+router.get('/about', pageController.aboutPage);
+
 // Страница категории
 router.get('/:category', pageController.categoryItem);
 
