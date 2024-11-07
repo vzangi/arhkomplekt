@@ -1,0 +1,22 @@
+section(class="portfolio")
+  div(class="dark-bg color-white")
+    div(class="box")
+      div(class="blog__box")
+        h3 ПОРТФОЛИО
+        hr
+
+      div(class="blog__items__box")
+        ul
+          each item in portfolioItems
+            li 
+              a(class="blog__item" href= `/portfolio/${item.link}`)
+                div(class="blog__item-imgwrapper")
+                  div(class="blog__item-img" style=`background-image:url(${item.prevu_image})`) 
+                div(class="blog__item-infowrapper")
+                  div(class="blog__item-text")
+                    div(class="blog__item-title")= item.title
+                    if item.prevu
+                      div(class="blog__item-desc")= item.prevu 
+                  div(class="blog__item-date")
+                    span= item.date
+            

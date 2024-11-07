@@ -1,7 +1,7 @@
 const categories = require('../data/categories');
 const seo = require('../data/seo');
 const contacts = require('../data/contacts');
-const { blogCategories, findPostByLink } = require('../data/blog');
+const { blogCategories } = require('../data/blog');
 
 class PageController {
 
@@ -18,27 +18,8 @@ class PageController {
     res.render('pages/main');
   }
 
-  async blogPage(req, res) {
-    res.locals.blog = blogCategories;
-    res.render('pages/blog');
-  }
-
-  async blogItem(req, res, next) {
-    const { link } = req.params;
-    const data = findPostByLink(link);
-    if (!data) return next();
-    const { blogItem, category } = data;
-    
-    res.locals.blogItem = blogItem;
-    res.locals.category = category;
-    res.locals.blog = blogCategories;
-    res.locals.seo = {
-      title: blogItem.title,
-    }
-    if (blogItem.description) {
-      res.locals.seo.description = blogItem.description
-    }
-    res.render('pages/blogItem');
+  async deliveryPage(req, res) {
+    res.render('pages/delivery');
   }
 
   async contactsPage(req, res) {

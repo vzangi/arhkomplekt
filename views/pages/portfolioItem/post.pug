@@ -1,0 +1,12 @@
+section(class="blog__item")
+  div(class="dark-bg color-white")
+    div(class="box")
+      div(class="blog__box")
+        h3= item.title
+        p(class="d-flex gap-4")
+          small(class="text-secondary")= item.date
+
+        video(id="myVideo" controls)
+          source(src=item.video type="video/mp4") 
+
+        p= item.description

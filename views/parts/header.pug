@@ -5,7 +5,7 @@ header
       div(class="heder__logo")
         a(href="/") архкомплект
 
-      div(class="header__nav")
+      //- div(class="header__nav")
         nav 
           ul 
             each category in categories 
@@ -14,9 +14,9 @@ header
 
       div(class="header__icons")
         div(class="header__phone")
-          a(href="#")= contacts.phone
+          a(href=`tel:+${contacts.tel}`)= contacts.phone
         div(class="header__icon")
-          a(href="#")
+          a(href=`https://t.me/+${contacts.tel}`)
             img(src="/img/telegram_1.png")
         div(class="header__icon")
           a(href=`https://wa.me/${contacts.tel}`)
