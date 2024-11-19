@@ -15,7 +15,7 @@ const portfolioItems = [
     prevu_image: '/uploads/i02.png',
     link: 'v02',
     video: '/uploads/v02.mp4',
-    date: '13.11.2024',
+    date: '24.10.2024',
   },
   {
     title: 'Комплектация квартиры на ул. Тогоева',
@@ -24,7 +24,7 @@ const portfolioItems = [
     prevu_image: '/uploads/i03.png',
     link: 'v03',
     video: '/uploads/v03.mp4',
-    date: '13.11.2024',
+    date: '11.10.2024',
   },
   {
     title: 'Комплектация квартиры в ЖК "Рублёвка"',
@@ -42,7 +42,7 @@ const portfolioItems = [
     prevu_image: '/uploads/i05.png',
     link: 'v05',
     video: '/uploads/v05.mp4',
-    date: '13.11.2024',
+    date: '05.09.2024',
   },
   
 ];
