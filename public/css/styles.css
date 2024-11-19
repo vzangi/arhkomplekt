@@ -3,6 +3,11 @@
   src: url('/fonts/Xolonium.ttf');
 }
 
+@font-face {
+  font-family: 'radiotechnika';
+  src: url('/fonts/Radiotechnika.ttf');
+}
+
 :root {
   --color-black: #000000;
   --color-black-light: #111111;
@@ -27,7 +32,7 @@
 body {
   margin: 0;
   /* font-family: Montserrat, Arial, Helvetica, sans-serif; */
-  font-family: xolonium, Arial, Helvetica, sans-serif;
+  font-family: radiotechnika, xolonium, Arial, Helvetica, sans-serif;
   font-size: 14px;
   color: var(--color-black-light);
   overflow-x: hidden;
