@@ -227,6 +227,7 @@
 }
 
 .about__box h3 {
+  font-family: radiotechnika, Arial, Helvetica, sans-serif;
   font-size: calc(23px + 16*((100vw - 320px) /(1280 - 320)));
   font-weight: 600;
   margin-bottom: 2px;
