@@ -4,6 +4,7 @@ const pageController = require('../controllers/PageController');
 const blogController = require('../controllers/BlogController');
 const portfolioController = require('../controllers/PortfolioController');
 const reviewController = require('../controllers/ReviewController');
+const notFoundController = require('../controllers/NotFoundController');
 
 // Установка переменных для всех шаблонов
 router.use(pageController.setupMiddleware);
@@ -40,5 +41,7 @@ router.get('/about', pageController.aboutPage);
 
 // Страница категории
 router.get('/:category', pageController.categoryItem);
+
+router.get('*', notFoundController.notFound);
 
 module.exports = router
