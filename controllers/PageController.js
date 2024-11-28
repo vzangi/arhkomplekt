@@ -1,5 +1,5 @@
 const categories = require('../data/categories');
-const seo = require('../data/seo');
+const seoHelper = require('../helpers/SeoHelper');
 const contacts = require('../data/contacts');
 const { blogCategories } = require('../data/blog');
 
@@ -8,7 +8,7 @@ class PageController {
   async setupMiddleware(req, res, next) {
     res.locals.categories = categories;
     res.locals.contacts = contacts;
-    res.locals.seo = seo.find(s => s.page == req.path);
+    res.locals.seo = await seoHelper.getPageSeo(req.path);
 
     next();
   }
