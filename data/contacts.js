@@ -1,9 +1,12 @@
-const contacts = {
-  phone: '+7 (918) 706-00-50',
-  tel: '79187060050',
-  city: 'Владикавказ',
-  address: 'ул. Карла Маркса 74',
-  email: 'komplektator_vld@yandex.ru'
-}
+const config = require('../models').Config
+
+const contacts = {};
+
+(async function () {
+  const confs = await config.findAll({raw: true});
+  for (const element of confs) {
+    contacts[element.name] = element.value
+  }
+})();
 
 module.exports = contacts
