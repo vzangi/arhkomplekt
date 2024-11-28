@@ -8,14 +8,19 @@
     "dev": "npm i; nodemon index.js",
     "build": "rm -r node_modules; docker build . -t vzangi/arhkomplekt:latest; docker image prune -f",
     "push": "docker push vzangi/arhkomplekt:latest;",
-    "bp": "npm run build; npm run push"
+    "bp": "npm run build; npm run push",
+    "db:init": "npx sequelize db:create",
+    "db:migrate": "npx sequelize db:migrate"
   },
   "author": "zangi",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
-    "pug": "^3.0.3"
+    "mysql2": "^3.11.4",
+    "pug": "^3.0.3",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
