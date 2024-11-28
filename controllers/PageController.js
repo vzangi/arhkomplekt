@@ -1,13 +1,13 @@
 const categories = require('../data/categories');
 const seoHelper = require('../helpers/SeoHelper');
-const contacts = require('../data/contacts');
+const configHelper = require('../helpers/ConfigHelper');
 const { blogCategories } = require('../data/blog');
 
 class PageController {
 
   async setupMiddleware(req, res, next) {
     res.locals.categories = categories;
-    res.locals.contacts = contacts;
+    res.locals.contacts = await configHelper.getContacts();
     res.locals.seo = await seoHelper.getPageSeo(req.path);
 
     next();
