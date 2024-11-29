@@ -1,4 +1,3 @@
-const { blogCategories, findPostByLink } = require('../data/blog');
 const blogHelper = require('../helpers/BlogHelper');
 
 class BlogController {
