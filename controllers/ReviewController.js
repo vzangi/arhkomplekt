@@ -1,16 +1,16 @@
-const { reviewsItems, findReviewByLink } = require('../data/reviews');
+const reviewHelper = require('../helpers/ReviewHelper');
 
 class ReviewController {
   async reviewPage(req, res) {
+    const reviewsItems = await reviewHelper.getReviews()
     res.locals.reviewsItems = reviewsItems;
     res.render('pages/reviews');
   }
 
   async reviewItem(req, res, next) {
     const { link } = req.params;
-    const data = findReviewByLink(link);
-    if (!data) return next();
-    const item = data.finded;
+    const item = await reviewHelper.findItemByLink(link);
+    if (!item) return next();
     
     res.locals.item = item;
     res.locals.seo = {
