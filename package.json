@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "npm i; nodemon index.js",
+    "dev": "nodemon index.js",
     "build": "rm -r node_modules; docker build . -t vzangi/arhkomplekt:latest; docker image prune -f",
     "push": "docker push vzangi/arhkomplekt:latest;",
     "bp": "npm run build; npm run push",
@@ -15,8 +15,10 @@
   "author": "zangi",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "dotenv": "^16.4.5",
     "express": "^4.21.1",
+    "express-session": "^1.18.1",
     "mysql2": "^3.11.4",
     "pug": "^3.0.3",
     "sequelize": "^6.37.5",
