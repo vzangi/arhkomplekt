@@ -1,7 +1,7 @@
 const categories = require('../data/categories');
 const seoHelper = require('../helpers/SeoHelper');
 const configHelper = require('../helpers/ConfigHelper');
-const { blogCategories } = require('../data/blog');
+const blogHelper = require('../helpers/BlogHelper');
 
 class PageController {
 
@@ -14,6 +14,7 @@ class PageController {
   }
 
   async mainPage(req, res) {
+    const blogCategories = await blogHelper.getCategories();
     res.locals.blog = blogCategories;
     res.render('pages/main');
   }
