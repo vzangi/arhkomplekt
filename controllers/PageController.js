@@ -1,4 +1,4 @@
-const categories = require('../data/categories');
+const categoryHelper = require('../helpers/CategoryHelper');
 const seoHelper = require('../helpers/SeoHelper');
 const configHelper = require('../helpers/ConfigHelper');
 const blogHelper = require('../helpers/BlogHelper');
@@ -6,7 +6,7 @@ const blogHelper = require('../helpers/BlogHelper');
 class PageController {
 
   async setupMiddleware(req, res, next) {
-    res.locals.categories = categories;
+    res.locals.categories = await categoryHelper.getCategories();
     res.locals.contacts = await configHelper.getContacts();
     res.locals.seo = await seoHelper.getPageSeo(req.path);
 
