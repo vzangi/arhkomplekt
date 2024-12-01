@@ -13,6 +13,26 @@ class ConfigHelper {
     }
     return this.contacts;
   }
+
+  async get() {
+    return await configModel.findAll({
+      attributes: ['id', 'name', 'value'],
+      raw: true
+    });
+  }
+
+  async add(data) {
+    await configModel.create(data)
+  }
+
+  async edit(id, value) {
+    await configModel.update({
+      value
+    }, {
+      where: { id }
+    })
+    this.contacts = null;
+  }
 }
 
 module.exports = new ConfigHelper();

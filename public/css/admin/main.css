@@ -1,0 +1,9 @@
+@import url('base.css');
+
+body {
+  background-color: var(--color-arh);
+}
+
+.mw-300 {
+  max-width: 300px;
+}
