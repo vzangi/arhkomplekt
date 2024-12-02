@@ -1,0 +1,17 @@
+div(class="d-flex p-2 gap-2")
+  a(href="/admin")
+    i(class="bi bi-house-door-fill")
+  span / 
+  - var d = 'uploads'
+  if dirs.length != 0
+    a(href=`/admin/${d}`) Загрузки
+  else
+    span Загрузки
+
+  each dir, index in dirs 
+    - d = d + '/' + dir
+    span / 
+    if index != dirs.length - 1
+      a(class="dir" href=`/admin/${d}`)= dir
+    else 
+      span= dir
