@@ -7,6 +7,9 @@ const app = express();
 app.set('view engine', 'pug');
 app.locals.basedir = path.join(__dirname, 'views');
 
+const fileUpload = require('express-fileupload')
+app.use(fileUpload())
+
 app.use(express.static('public'));
 
 const session = require('express-session');

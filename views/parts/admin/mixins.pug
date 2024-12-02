@@ -18,7 +18,7 @@ mixin modalForm(id, action, title='')
           h5(class="modal-title")= title
           button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close") 
 
-        form(method="post" action=action)
+        form(method="post" action=action)&attributes(attributes)
           div(class="modal-body")
             if block 
               block

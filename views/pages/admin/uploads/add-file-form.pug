@@ -1,5 +1,5 @@
 button(class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addFileForm") Загрузить файл
 
-+modalForm('addFileForm', '/admin/file/add', 'Загрузка файла')
-  +formInput('', 'name', 'add-', true, 'file')
++modalForm('addFileForm', '/admin/file/add', 'Загрузка файла')(encType="multipart/form-data")
+  +formInput('', 'file', 'add-', true, 'file')
   input(type="hidden" name="subdir" value=d)

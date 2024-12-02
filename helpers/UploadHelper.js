@@ -46,6 +46,10 @@ class UploadHelper {
       .join('/')
   }
 
+  async uploadFile(dir, file) {
+    await file.mv(`${this.base}${dir}/${file.name}`)
+  }
+
 }
 
 module.exports = new UploadHelper();

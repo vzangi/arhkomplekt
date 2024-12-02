@@ -30,6 +30,13 @@ class SeoController {
     const baseDir = uploadHelper.removeDir(name)
     res.redirect('/admin/' + baseDir);
   }
+
+  async uploadFile(req, res) {
+    const { file } = req.files
+    const { subdir } = req.body
+    await uploadHelper.uploadFile(subdir, file);
+    res.redirect('/admin/' + subdir);
+  }
 }
 
 module.exports = new SeoController()
