@@ -22,6 +22,7 @@ router.get('/uploads*', authController.isAuth, uploadController.index);
 router.post('/folder/add', authController.isAuth, uploadController.makeDir);
 router.post('/folder/remove', authController.isAuth, uploadController.removeDir);
 router.post('/file/add', authController.isAuth, uploadController.uploadFile);
+router.post('/file/remove', authController.isAuth, uploadController.removeFile);
 
 router.get('/logout', authController.logout);
 router.post('/', authController.login);

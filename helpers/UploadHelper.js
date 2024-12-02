@@ -5,7 +5,7 @@ class UploadHelper {
   base = './public/'
 
   async getFiles(path) {
-    
+
     const folder = `${this.base}uploads/${this.getDirs(path).join('/')}`;
 
     if (!fs.existsSync(folder)) throw new Error('Path not found');
@@ -40,7 +40,7 @@ class UploadHelper {
 
   removeDir(path) {
     fs.rmSync(this.base + path, { recursive: true, force: true });
-    return path 
+    return path
       .split('/')
       .slice(0, -1)
       .join('/')
@@ -48,6 +48,14 @@ class UploadHelper {
 
   async uploadFile(dir, file) {
     await file.mv(`${this.base}${dir}/${file.name}`)
+  }
+
+  removeFile(file) {
+    fs.rmSync(`${this.base}${file}`)
+    return file
+      .split('/')
+      .slice(0, -1)
+      .join('/')
   }
 
 }
