@@ -4,6 +4,7 @@ const authController = require('../controllers/admin/AuthController');
 const settingsController = require('../controllers/admin/SettingsController');
 const seoController = require('../controllers/admin/SeoController');
 const uploadController = require('../controllers/admin/UploadController');
+const blogController = require('../controllers/admin/BlogController');
 
 router.get('/', authController.isAuth, authController.index);
 
@@ -23,6 +24,13 @@ router.post('/folder/add', authController.isAuth, uploadController.makeDir);
 router.post('/folder/remove', authController.isAuth, uploadController.removeDir);
 router.post('/file/add', authController.isAuth, uploadController.uploadFile);
 router.post('/file/remove', authController.isAuth, uploadController.removeFile);
+
+// Категории блога
+router.get('/blog', authController.isAuth, blogController.index);
+router.post('/blog/add', authController.isAuth, blogController.add);
+router.post('/blog/edit', authController.isAuth, blogController.edit);
+router.post('/blog/remove', authController.isAuth, authController.isAdmin, blogController.remove);
+
 
 router.get('/logout', authController.logout);
 router.post('/', authController.login);

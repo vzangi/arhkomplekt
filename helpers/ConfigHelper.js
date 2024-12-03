@@ -22,7 +22,8 @@ class ConfigHelper {
   }
 
   async add(data) {
-    await configModel.create(data)
+    await configModel.create(data);
+    this.contacts = null;
   }
 
   async edit(id, value) {

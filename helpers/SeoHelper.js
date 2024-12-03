@@ -42,7 +42,8 @@ class SeoHelper {
   }
 
   async add(data) {
-    await seoModel.create(data)
+    await seoModel.create(data);
+    this.clearSeoCache();
   }
 
   async edit(id, data) {
@@ -55,7 +56,8 @@ class SeoHelper {
   async remove(id) {
     await seoModel.destroy({
       where: { id }
-    })
+    });
+    this.clearSeoCache();
   }
 
   // Очистка кэша SEO

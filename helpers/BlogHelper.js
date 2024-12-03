@@ -6,12 +6,16 @@ class BlogHelper {
 
   async getCategories() {
     if (!this.categories) {
-      this.categories = await blogCategoryModel.findAll({ 
-        raw: false, 
-        include: ['items'] 
-      });
+      this.refreshBlogCategories();
     }
     return this.categories;
+  }
+
+  async refreshBlogCategories() {
+    this.categories = await blogCategoryModel.findAll({ 
+      raw: false, 
+      include: ['items'] 
+    });
   }
 
   async findPostByLink(link) {
@@ -20,6 +24,27 @@ class BlogHelper {
       include: ['BlogCategory']
     });
     return item;
+  }
+
+  async getBlogCategories() {
+    return await blogCategoryModel.findAll({ raw: false });
+  }
+
+  async addBlogCategory(data) {
+    await blogCategoryModel.create(data);
+      this.refreshBlogCategories();
+  }
+
+  async editBlogCategory(id, data) {
+    await blogCategoryModel.update(data, { where: { id }});
+      this.refreshBlogCategories();
+  }
+
+  async removeBlogCategory(id) {
+    await blogCategoryModel.destroy({
+      where: { id }
+    });
+      this.refreshBlogCategories();
   }
 }
 
