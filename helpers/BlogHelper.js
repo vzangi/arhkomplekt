@@ -46,6 +46,19 @@ class BlogHelper {
     });
       this.refreshBlogCategories();
   }
+
+  async getCategoryById(id) {
+    return await blogCategoryModel.findOne({ where: { id }});
+  }
+
+  async getItemsOfCategory(blogCategoryId) {
+    const items = await blogItemModel.findAll({
+      where: {
+        blogCategoryId
+      },
+    });
+    return items;
+  }
 }
 
 module.exports = new BlogHelper();

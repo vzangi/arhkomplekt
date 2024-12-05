@@ -5,6 +5,8 @@ const settingsController = require('../controllers/admin/SettingsController');
 const seoController = require('../controllers/admin/SeoController');
 const uploadController = require('../controllers/admin/UploadController');
 const blogController = require('../controllers/admin/BlogController');
+const blogItemController = require('../controllers/admin/BlogItemController');
+const dirController = require('../controllers/admin/DirController');
 
 router.get('/', authController.isAuth, authController.index);
 
@@ -30,6 +32,13 @@ router.get('/blog', authController.isAuth, blogController.index);
 router.post('/blog/add', authController.isAuth, blogController.add);
 router.post('/blog/edit', authController.isAuth, blogController.edit);
 router.post('/blog/remove', authController.isAuth, authController.isAdmin, blogController.remove);
+
+// Записи блога
+router.get('/blog/:id', authController.isAuth, blogItemController.index);
+
+
+// Ajax-DIR
+router.get('/dir*', authController.isAuth, dirController.dir);
 
 
 router.get('/logout', authController.logout);
