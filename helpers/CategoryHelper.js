@@ -20,6 +20,21 @@ class CategoryHelper {
     });
     return item;
   }
+
+  async addCategory(data) {
+    await categoryModel.create(data)
+    this.categories = null
+  }
+
+  async editCategory(id, data) {
+    await categoryModel.update(data, { where: { id } })
+    this.categories = null
+  }
+
+  async removeCategory(id, data) {
+    await categoryModel.destroy({ where: { id } });
+    this.categories = null
+  }
 }
 
 module.exports = new CategoryHelper();

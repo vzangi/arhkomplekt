@@ -9,6 +9,7 @@ const blogItemController = require('../controllers/admin/BlogItemController');
 const dirController = require('../controllers/admin/DirController');
 const portfolioController = require('../controllers/admin/PortfolioController');
 const reviewsController = require('../controllers/admin/ReviewsController');
+const categoryController = require('../controllers/admin/CategoryController');
 
 router.get('/', authController.isAuth, authController.index);
 
@@ -52,6 +53,10 @@ router.post('/reviews/add', authController.isAuth, reviewsController.add);
 router.post('/reviews/edit', authController.isAuth, reviewsController.edit);
 router.post('/reviews/remove', authController.isAuth, authController.isAdmin, reviewsController.remove);
 
+router.get('/categories', authController.isAuth, categoryController.index);
+router.post('/categories/add', authController.isAuth, categoryController.add);
+router.post('/categories/edit', authController.isAuth, categoryController.edit);
+router.post('/categories/remove', authController.isAuth, authController.isAdmin, categoryController.remove);
 
 
 // Ajax-DIR
