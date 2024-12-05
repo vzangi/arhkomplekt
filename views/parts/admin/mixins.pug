@@ -18,8 +18,8 @@ mixin formTextarea(title, name, prefix='', required=true, rows=4, disabled=false
       label(class="col-form-label")= title
     textarea(class="form-control" rows=rows required=required id=prefix+name name=name disabled=disabled)
 
-mixin modalForm(id, action, title='')
-  div(class="modal fade" id=id data-bs-backdrop="static" tabindex="-1" aria-hidden="true")
+mixin modalForm(id, action, title='', cls='')
+  div(class=`modal fade ${cls}` id=id data-bs-backdrop="static" tabindex="-1" aria-hidden="true")
     div(class="modal-dialog")
       div(class="modal-content")
         div(class="modal-header")

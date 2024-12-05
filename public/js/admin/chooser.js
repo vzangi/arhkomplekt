@@ -27,7 +27,15 @@ $(function(){
         fl.empty();
 
         let path = '/' + dirs.join('/')
-        if (path != '/') path = path + '/'
+        if (path != '/') {
+          path = path + '/';
+          const div = $('<div>');
+          div.addClass('folder')
+          div.append('<i class="bi bi-folder-fill me-1"></i>');
+          const p = '/' + dirs.slice(0,-1).join('/')
+          div.append(`<span data-url='${p}'>..</span>`)
+          fl.append(div)
+        }
 
         for (const element of folders) {
           const div = $('<div>');
