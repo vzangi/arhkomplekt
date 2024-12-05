@@ -6,7 +6,7 @@ class BlogHelper {
 
   async getCategories() {
     if (!this.categories) {
-      this.refreshBlogCategories();
+      await this.refreshBlogCategories();
     }
     return this.categories;
   }
@@ -32,17 +32,17 @@ class BlogHelper {
 
   async addBlogCategory(data) {
     await blogCategoryModel.create(data);
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
   }
 
   async editBlogCategory(id, data) {
     await blogCategoryModel.update(data, { where: { id } });
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
   }
 
   async removeBlogCategory(id) {
     await blogCategoryModel.destroy({ where: { id } });
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
   }
 
   async getCategoryById(id) {
@@ -60,13 +60,13 @@ class BlogHelper {
 
   async addBlogItem(data) {
     const item = await blogItemModel.create(data);
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
     return await blogItemModel.findByPk(item.id)
   }
 
   async editBlogItem(id, data) {
     await blogItemModel.update(data, { where: { id } });
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
     return await blogItemModel.findByPk(id)
   }
 
@@ -74,7 +74,7 @@ class BlogHelper {
     const item = await blogItemModel.findByPk(id);
     const blogCategoryId = item.blogCategoryId;
     await blogItemModel.destroy({ where: { id } });
-    this.refreshBlogCategories();
+    await this.refreshBlogCategories();
     return blogCategoryId;
   }
 }
