@@ -1,0 +1,9 @@
+button(class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addForm") Добавить
+
++modalForm('addForm', '/admin/reviews/add', 'Добавление', 'modal-lg')
+  +formInput('Заголовок', 'title', 'add-')
+  +formTextarea('Описание', 'description', 'add-', false)
+  +formInput('Линк', 'link', 'add-')
+  +formInput('Дата', 'date', 'add-')
+  +formInputChooser('Картинка', 'prevuImage', 'add-')
+  +formInputChooser('Видео', 'video', 'add-')

@@ -19,6 +19,21 @@ class ReviewHelper {
     });
     return item;
   }
+
+  async addReviewsItem(data) {
+    await reviewModel.create(data)
+    this.reviews = null
+  }
+
+  async editReviewsItem(id, data) {
+    await reviewModel.update(data, { where: { id } })
+    this.reviews = null
+  }
+
+  async removeReviewsItem(id, data) {
+    await reviewModel.destroy({ where: { id } });
+    this.reviews = null
+  }
 }
 
 module.exports = new ReviewHelper();
