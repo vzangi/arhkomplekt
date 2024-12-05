@@ -9,20 +9,20 @@ class BlogController {
   }
 
   async add(req, res) {
-    await blogHelper.addBlogCategory(req.body)
-    res.redirect('/admin/blog');
+    const item = await blogHelper.addBlogItem(req.body)
+    res.redirect(`/admin/blog/${item.blogCategoryId}`);
   }
 
   async edit(req, res) {
     const { id, ...data } = req.body
-    await blogHelper.editBlogCategory(id, data)
-    res.redirect('/admin/blog');
+    const item = await blogHelper.editBlogItem(id, data)
+    res.redirect(`/admin/blog/${item.blogCategoryId}`);
   }
 
   async remove(req, res) {
     const { id } = req.body
-    await blogHelper.removeBlogCategory(id);
-    res.redirect('/admin/blog');
+    const blogCategoryId = await blogHelper.removeBlogItem(id);
+    res.redirect(`/admin/blog/${blogCategoryId}`);
   }
 }
 

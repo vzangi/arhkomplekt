@@ -35,6 +35,9 @@ router.post('/blog/remove', authController.isAuth, authController.isAdmin, blogC
 
 // Записи блога
 router.get('/blog/:id', authController.isAuth, blogItemController.index);
+router.post('/blogitem/add', authController.isAuth, blogItemController.add);
+router.post('/blogitem/edit', authController.isAuth, blogItemController.edit);
+router.post('/blogitem/remove', authController.isAuth, authController.isAdmin, blogItemController.remove);
 
 
 // Ajax-DIR
