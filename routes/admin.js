@@ -10,6 +10,7 @@ const dirController = require('../controllers/admin/DirController');
 const portfolioController = require('../controllers/admin/PortfolioController');
 const reviewsController = require('../controllers/admin/ReviewsController');
 const categoryController = require('../controllers/admin/CategoryController');
+const itemController = require('../controllers/admin/ItemController');
 
 router.get('/', authController.isAuth, authController.index);
 
@@ -42,7 +43,6 @@ router.post('/blogitem/add', authController.isAuth, blogItemController.add);
 router.post('/blogitem/edit', authController.isAuth, blogItemController.edit);
 router.post('/blogitem/remove', authController.isAuth, authController.isAdmin, blogItemController.remove);
 
-
 router.get('/portfolio', authController.isAuth, portfolioController.index);
 router.post('/portfolio/add', authController.isAuth, portfolioController.add);
 router.post('/portfolio/edit', authController.isAuth, portfolioController.edit);
@@ -58,10 +58,13 @@ router.post('/categories/add', authController.isAuth, categoryController.add);
 router.post('/categories/edit', authController.isAuth, categoryController.edit);
 router.post('/categories/remove', authController.isAuth, authController.isAdmin, categoryController.remove);
 
+router.get('/categories/:id', authController.isAuth, itemController.index);
+router.post('/item/add', authController.isAuth, itemController.add);
+router.post('/item/edit', authController.isAuth, itemController.edit);
+router.post('/item/remove', authController.isAuth, authController.isAdmin, itemController.remove);
 
 // Ajax-DIR
 router.get('/dir*', authController.isAuth, dirController.dir);
-
 
 router.get('/logout', authController.logout);
 router.post('/', authController.login);

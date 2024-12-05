@@ -1,0 +1,8 @@
+button(class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addForm") Добавить
+
++modalForm('addForm', '/admin/item/add', 'Добавление', 'modal-lg')
+  +formInput('Фирма', 'name', 'add-')
+  +formInput('Ссылка', 'url', 'add-')
+  +formInputChooser('Картинка', 'img', 'add-')
+  +formInputChooser('Логотип', 'logo', 'add-')
+  input(type="hidden" name="categoryId" value=category.id)
