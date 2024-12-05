@@ -1,0 +1,10 @@
+header 
+  div(class="d-flex justify-content-between align-items-center bg-dark text-white p-2 shadow-sm")
+    div
+      if user.role == 1
+        span(title="Администратор")
+          i(class="bi bi-emoji-sunglasses-fill") 
+      span= user.name
+
+    a(href="/admin/logout" class="btn btn-sm btn-light") 
+      span Выход 

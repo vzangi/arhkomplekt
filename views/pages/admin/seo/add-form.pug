@@ -1,0 +1,7 @@
+button(class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addForm") Добавить
+
++modalForm('addForm', '/admin/seo/add', 'Добавление')
+  +formInput('Страница', 'page', 'add-')
+  +formInput('Заголовок', 'title', 'add-')
+  +formTextarea('Описание', 'description', 'add-', false)
+  +formInput('Ключевые слова', 'keywords', 'add-', false)

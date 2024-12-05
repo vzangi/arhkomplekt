@@ -34,6 +34,32 @@ class SeoHelper {
     return seo;
   }
 
+  async get() {
+    return await seoModel.findAll({
+      attributes: ['id', 'page', 'title', 'description', 'keywords'],
+      raw: true
+    });
+  }
+
+  async add(data) {
+    await seoModel.create(data);
+    this.clearSeoCache();
+  }
+
+  async edit(id, data) {
+    await seoModel.update(data, {
+      where: { id }
+    });
+    this.clearSeoCache();
+  }
+
+  async remove(id) {
+    await seoModel.destroy({
+      where: { id }
+    });
+    this.clearSeoCache();
+  }
+
   // Очистка кэша SEO
   clearSeoCache() {
     this.seos = {}

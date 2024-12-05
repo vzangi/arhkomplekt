@@ -1,0 +1,36 @@
+mixin formInput(title, name, prefix='', required=true, itype='text', disabled=false)
+  div(class="mb-3")
+    if title
+      label(class="col-form-label")= title
+    input(type=itype class="form-control" required=required id=prefix+name name=name disabled=disabled)
+
+mixin formInputChooser(title, name, prefix='', required=true, itype='text', disabled=false)
+  div(class="mb-3")
+    if title
+      label(class="col-form-label")= title
+    div(class="input-group")
+      input(type=itype class="form-control" required=required id=prefix+name name=name disabled=disabled)
+      a(class="btn btn-secondary btn-choose") ...
+
+mixin formTextarea(title, name, prefix='', required=true, rows=4, disabled=false)
+  div(class="mb-3")
+    if title
+      label(class="col-form-label")= title
+    textarea(class="form-control" rows=rows required=required id=prefix+name name=name disabled=disabled)
+
+mixin modalForm(id, action, title='', cls='')
+  div(class=`modal fade ${cls}` id=id data-bs-backdrop="static" tabindex="-1" aria-hidden="true")
+    div(class="modal-dialog")
+      div(class="modal-content")
+        div(class="modal-header")
+          h5(class="modal-title")= title
+          button(type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close") 
+
+        form(method="post" action=action)&attributes(attributes)
+          div(class="modal-body")
+            if block 
+              block
+          
+          div(class="modal-footer")
+            button(type="button" class="btn btn-secondary" data-bs-dismiss="modal") Отмена
+            button(type="submit" class="btn btn-primary") Сохранить

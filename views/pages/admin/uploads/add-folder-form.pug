@@ -1,0 +1,5 @@
+button(class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addFolderForm") Создать папку
+
++modalForm('addFolderForm', '/admin/folder/add', 'Создание папки')
+  +formInput('Имя папки', 'name', 'add-')
+  input(type="hidden" name="subdir" value=d)

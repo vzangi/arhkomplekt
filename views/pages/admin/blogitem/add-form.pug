@@ -1,0 +1,11 @@
+button(class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addForm") Добавить
+
++modalForm('addForm', '/admin/blogitem/add', 'Добавление', 'modal-lg')
+  +formInput('Заголовок', 'title', 'add-')
+  +formInput('Подзаголовок', 'prevu', 'add-', false)
+  +formTextarea('Описание', 'description', 'add-', false)
+  +formInput('Линк', 'link', 'add-')
+  +formInput('Дата', 'date', 'add-')
+  +formInputChooser('Картинка', 'prevuImage', 'add-')
+  +formInputChooser('Видео', 'video', 'add-')
+  input(type="hidden" name="blogCategoryId" value=category.id)

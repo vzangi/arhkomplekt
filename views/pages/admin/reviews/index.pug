@@ -1,0 +1,10 @@
+extends /layouts/admin
+
+block content
+  include bread
+  include table
+  include edit-form
+  include /parts/admin/choose-form
+
+block scripts 
+  script(src="/js/admin/reviews.js")
