@@ -8,8 +8,6 @@ class UploadHelper {
 
     const folder = `${this.base}uploads/${this.getDirs(path).join('/')}`;
 
-    console.log(folder)
-
     if (!fs.existsSync(folder)) throw new Error('Path not found');
 
     const names = fs.readdirSync(folder, {
