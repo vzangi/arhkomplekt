@@ -6,6 +6,11 @@ class SettingsController {
     res.render('pages/admin/settings');
   }
 
+  async add(req, res) {
+    await configHelper.add(req.body);
+    res.redirect('/admin/settings');
+  }
+
   async edit(req, res) {
     const { id, value } = req.body
     await configHelper.edit(id, value)

@@ -16,6 +16,7 @@ router.get('/', authController.isAuth, authController.index);
 
 // Настройки
 router.get('/settings', authController.isAuth, settingsController.index);
+router.post('/settings/add', authController.isAuth, settingsController.add);
 router.post('/settings/edit', authController.isAuth, settingsController.edit);
 
 // SEO
