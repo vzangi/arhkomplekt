@@ -9,7 +9,7 @@ class PageController {
     res.locals.categories = await categoryHelper.getCategories();
     res.locals.contacts = await configHelper.getContacts();
     res.locals.seo = await seoHelper.getPageSeo(req.path);
-
+    res.locals.path = req.path;
     next();
   }
 

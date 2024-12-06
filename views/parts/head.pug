@@ -9,6 +9,12 @@ if seo
     meta(name="keywords" content=seo.keywords)
 
 
+  meta(property="og:url" content=`https://arhkomplekt.ru${path}`)
+  meta(property="og:type" content="website")
+  meta(property="og:title" content=seo.title)
+  if (seo.description)
+    meta(property="og:description" content=seo.description)
+
 //- link(href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;subset=latin,cyrillic" rel="stylesheet")
 
 link(rel="icon" type="image/png" href="/fav/favicon-96x96.png" sizes="96x96")
