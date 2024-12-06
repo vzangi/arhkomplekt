@@ -3,14 +3,7 @@ header
     div(class="header__line")
 
       div(class="heder__logo")
-        a(href="/") архкомплект
-
-      //- div(class="header__nav")
-        nav 
-          ul 
-            each category in categories 
-              li
-                a(href=category.url)= category.name
+        a(href="/")= contacts.firm
 
       div(class="header__icons")
         div(class="header__phone")

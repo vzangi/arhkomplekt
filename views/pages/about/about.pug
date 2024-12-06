@@ -4,10 +4,10 @@ section(class="about")
       div(class="about__box")
         div(class="about__box__info")
           div
-            h3 АРХКОМПЛЕКТ
-            small(class="text-secondary") основано 2021
+            h3= contacts.firm
+            small(class="text-secondary")= contacts.founded
           div
-            p Салон отделочных материалов с персональным менеджером без переплат. Более 100 тыс. позиций, позволят вам выбрать все отделочные материалы в одном месте с высоким качеством товара по цене от производителя.
+            p= contacts.description
 
         div(class="about__video mt-5")
           video(id="myVideo" autoplay="" muted="" playsinline="" loop="")

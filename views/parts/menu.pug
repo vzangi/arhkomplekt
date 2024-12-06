@@ -10,12 +10,11 @@ div(class="menu dark-bg color-white")
           img(src="/img/whatsapp_1.png")
     
     div(class="menu__social")
-      div Соц. сети
-      div(class="menu__social-icons")
-        //- a(class="menu__socail__telegram-icon menu-icon" href="#")
-          img(src="/img/telegram_1.png")
-        a(class="menu-icon" href="https://instagram.com/archcomplect_vld" target="_blank")
-          img(src="/img/icons8-instagram-24.png")
+      if contacts.instagram != ''
+        div Соц. сети
+        div(class="menu__social-icons")
+          a(class="menu-icon" href="${contacts.instagram}" target="_blank")
+            img(src="/img/icons8-instagram-24.png")
 
 
   div(class="menu__nav")
