@@ -10,6 +10,7 @@ class PageController {
     res.locals.contacts = await configHelper.getContacts();
     res.locals.seo = await seoHelper.getPageSeo(req.path);
     res.locals.path = req.path;
+    res.locals.sitename = process.env.SITENAME || 'https://arhkomplekt.ru';
     next();
   }
 

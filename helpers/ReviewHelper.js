@@ -1,4 +1,5 @@
 const reviewModel = require('../models').Review;
+const sitemap = require('./SitemapHelper');
 
 class ReviewHelper {
   reviews = null;
@@ -21,18 +22,23 @@ class ReviewHelper {
   }
 
   async addReviewsItem(data) {
-    await reviewModel.create(data)
-    this.reviews = null
+    await reviewModel.create(data);
+    this.clearReviewsCache();
   }
 
   async editReviewsItem(id, data) {
-    await reviewModel.update(data, { where: { id } })
-    this.reviews = null
+    await reviewModel.update(data, { where: { id } });
+    this.clearReviewsCache();
   }
 
   async removeReviewsItem(id, data) {
     await reviewModel.destroy({ where: { id } });
-    this.reviews = null
+    this.clearReviewsCache();
+  }
+
+  clearReviewsCache() {
+    this.reviews = null;
+    sitemap.regenerate();
   }
 }
 

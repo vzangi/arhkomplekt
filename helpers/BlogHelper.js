@@ -1,5 +1,6 @@
 const blogCategoryModel = require('../models').BlogCategory;
 const blogItemModel = require('../models').BlogItem;
+const sitemap = require('./SitemapHelper');
 
 class BlogHelper {
   categories = null;
@@ -16,6 +17,7 @@ class BlogHelper {
       raw: false,
       include: ['items']
     });
+    sitemap.regenerate();
   }
 
   async findPostByLink(link) {

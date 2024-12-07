@@ -1,5 +1,6 @@
 const categoryModel = require('../models').Category;
 const itemModel = require('../models').Item;
+const sitemap = require('./SitemapHelper');
 
 class CategoryHelper {
   categories = null;
@@ -24,17 +25,17 @@ class CategoryHelper {
 
   async addCategory(data) {
     await categoryModel.create(data);
-    this.categories = null;
+    this.clearCategoriesCache();
   }
 
   async editCategory(id, data) {
     await categoryModel.update(data, { where: { id } });
-    this.categories = null;
+    this.clearCategoriesCache();
   }
 
   async removeCategory(id, data) {
     await categoryModel.destroy({ where: { id } });
-    this.categories = null;
+    this.clearCategoriesCache();
   }
 
   async getCategoryById(id) {
@@ -49,7 +50,7 @@ class CategoryHelper {
 
   async addItem(data) {
     const item = await itemModel.create(data);
-    this.categories = null;
+    this.clearCategoriesCache();
     return item;
   }
 
@@ -57,7 +58,7 @@ class CategoryHelper {
     await itemModel.update(data, {
       where: { id }
     });
-    this.categories = null;
+    this.clearCategoriesCache();
     return await itemModel.findByPk(id);
   }
 
@@ -65,8 +66,13 @@ class CategoryHelper {
     const item = await itemModel.findByPk(id);
     const categoryId = item.categoryId;
     await itemModel.destroy({ where: { id }});
-    this.categories = null;
+    this.clearCategoriesCache();
     return categoryId;
+  }
+
+  clearCategoriesCache() {
+    this.categories = null;
+    sitemap.regenerate();
   }
 }
 

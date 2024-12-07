@@ -1,4 +1,5 @@
 const seoModel = require('../models').Seo
+const sitemap = require('./SitemapHelper');
 
 class SeoHelper {
   // Кэш SEO данных
@@ -63,6 +64,7 @@ class SeoHelper {
   // Очистка кэша SEO
   clearSeoCache() {
     this.seos = {}
+    sitemap.regenerate();
   }
 }
 

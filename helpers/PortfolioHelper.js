@@ -1,4 +1,5 @@
 const portfolioModel = require('../models').Portfolio;
+const sitemap = require('./SitemapHelper');
 
 class PortfolioHelper {
   portfolios = null;
@@ -22,17 +23,22 @@ class PortfolioHelper {
 
   async addPortfolioItem(data) {
     await portfolioModel.create(data)
-    this.portfolios = null
+    this.clearPorfolioCache();
   }
 
   async editPortfolioItem(id, data) {
     await portfolioModel.update(data, { where: { id } })
-    this.portfolios = null
+    this.clearPorfolioCache();
   }
 
   async removePortfolioItem(id, data) {
     await portfolioModel.destroy({ where: { id } });
-    this.portfolios = null
+    this.clearPorfolioCache();
+  }
+
+  clearPorfolioCache() {
+    this.portfolios = null;
+    sitemap.regenerate();
   }
 }
 
